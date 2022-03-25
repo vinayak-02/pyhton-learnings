@@ -1,0 +1,989 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "grade": false,
+     "locked": true,
+     "solution": false
+    }
+   },
+   "source": [
+    "# Week 9\n",
+    "\n",
+    "## Getting started with `Pandas`\n",
+    "\n",
+    "### 1. It is required to `import` the library when you start a new environment."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>country</th>\n",
+       "      <th>continent</th>\n",
+       "      <th>year</th>\n",
+       "      <th>lifeExp</th>\n",
+       "      <th>pop</th>\n",
+       "      <th>gdpPercap</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Afghanistan</td>\n",
+       "      <td>Asia</td>\n",
+       "      <td>1952</td>\n",
+       "      <td>28.801</td>\n",
+       "      <td>8425333</td>\n",
+       "      <td>779.445314</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Afghanistan</td>\n",
+       "      <td>Asia</td>\n",
+       "      <td>1957</td>\n",
+       "      <td>30.332</td>\n",
+       "      <td>9240934</td>\n",
+       "      <td>820.853030</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Afghanistan</td>\n",
+       "      <td>Asia</td>\n",
+       "      <td>1962</td>\n",
+       "      <td>31.997</td>\n",
+       "      <td>10267083</td>\n",
+       "      <td>853.100710</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Afghanistan</td>\n",
+       "      <td>Asia</td>\n",
+       "      <td>1967</td>\n",
+       "      <td>34.020</td>\n",
+       "      <td>11537966</td>\n",
+       "      <td>836.197138</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>Afghanistan</td>\n",
+       "      <td>Asia</td>\n",
+       "      <td>1972</td>\n",
+       "      <td>36.088</td>\n",
+       "      <td>13079460</td>\n",
+       "      <td>739.981106</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "       country continent  year  lifeExp       pop   gdpPercap\n",
+       "0  Afghanistan      Asia  1952   28.801   8425333  779.445314\n",
+       "1  Afghanistan      Asia  1957   30.332   9240934  820.853030\n",
+       "2  Afghanistan      Asia  1962   31.997  10267083  853.100710\n",
+       "3  Afghanistan      Asia  1967   34.020  11537966  836.197138\n",
+       "4  Afghanistan      Asia  1972   36.088  13079460  739.981106"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "raw='/Users/palaniappansubramaniam/Downloads/gdp.tsv'\n",
+    "df=pd.read_csv(raw,sep='\\t')\n",
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 2. Checking the basic information of data impored with `Pandas`\n",
+    "\n",
+    "\n",
+    "| Function/Attribute | Meaning | \n",
+    "| ------ | ------- | \n",
+    "|head()| Get the first n rows of DataFrame|\n",
+    "|tail()|Get last n rows of DataFrame|\n",
+    "|shape| the dimensionality of the DataFrame|\n",
+    "|dtype| Series with the data type of each column|\n",
+    "|columns|The column labels of the DataFrame|\n",
+    "|index|An array of the labeles(from 0 to N-1)|\n",
+    "|values|An array of the DataFrame|\n",
+    "|info| Summary of a DataFrame|\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "grade": false,
+     "locked": true,
+     "solution": false
+    }
+   },
+   "source": [
+    "What is the type of imported data?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "pandas.core.frame.DataFrame"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(df)\n",
+    "###\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "How the data look like?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>country</th>\n",
+       "      <th>continent</th>\n",
+       "      <th>year</th>\n",
+       "      <th>lifeExp</th>\n",
+       "      <th>pop</th>\n",
+       "      <th>gdpPercap</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Afghanistan</td>\n",
+       "      <td>Asia</td>\n",
+       "      <td>1952</td>\n",
+       "      <td>28.801</td>\n",
+       "      <td>8425333</td>\n",
+       "      <td>779.445314</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Afghanistan</td>\n",
+       "      <td>Asia</td>\n",
+       "      <td>1957</td>\n",
+       "      <td>30.332</td>\n",
+       "      <td>9240934</td>\n",
+       "      <td>820.853030</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Afghanistan</td>\n",
+       "      <td>Asia</td>\n",
+       "      <td>1962</td>\n",
+       "      <td>31.997</td>\n",
+       "      <td>10267083</td>\n",
+       "      <td>853.100710</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Afghanistan</td>\n",
+       "      <td>Asia</td>\n",
+       "      <td>1967</td>\n",
+       "      <td>34.020</td>\n",
+       "      <td>11537966</td>\n",
+       "      <td>836.197138</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>Afghanistan</td>\n",
+       "      <td>Asia</td>\n",
+       "      <td>1972</td>\n",
+       "      <td>36.088</td>\n",
+       "      <td>13079460</td>\n",
+       "      <td>739.981106</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "       country continent  year  lifeExp       pop   gdpPercap\n",
+       "0  Afghanistan      Asia  1952   28.801   8425333  779.445314\n",
+       "1  Afghanistan      Asia  1957   30.332   9240934  820.853030\n",
+       "2  Afghanistan      Asia  1962   31.997  10267083  853.100710\n",
+       "3  Afghanistan      Asia  1967   34.020  11537966  836.197138\n",
+       "4  Afghanistan      Asia  1972   36.088  13079460  739.981106"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "###\n",
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>country</th>\n",
+       "      <th>continent</th>\n",
+       "      <th>year</th>\n",
+       "      <th>lifeExp</th>\n",
+       "      <th>pop</th>\n",
+       "      <th>gdpPercap</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>1699</th>\n",
+       "      <td>Zimbabwe</td>\n",
+       "      <td>Africa</td>\n",
+       "      <td>1987</td>\n",
+       "      <td>62.351</td>\n",
+       "      <td>9216418</td>\n",
+       "      <td>706.157306</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1700</th>\n",
+       "      <td>Zimbabwe</td>\n",
+       "      <td>Africa</td>\n",
+       "      <td>1992</td>\n",
+       "      <td>60.377</td>\n",
+       "      <td>10704340</td>\n",
+       "      <td>693.420786</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1701</th>\n",
+       "      <td>Zimbabwe</td>\n",
+       "      <td>Africa</td>\n",
+       "      <td>1997</td>\n",
+       "      <td>46.809</td>\n",
+       "      <td>11404948</td>\n",
+       "      <td>792.449960</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1702</th>\n",
+       "      <td>Zimbabwe</td>\n",
+       "      <td>Africa</td>\n",
+       "      <td>2002</td>\n",
+       "      <td>39.989</td>\n",
+       "      <td>11926563</td>\n",
+       "      <td>672.038623</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1703</th>\n",
+       "      <td>Zimbabwe</td>\n",
+       "      <td>Africa</td>\n",
+       "      <td>2007</td>\n",
+       "      <td>43.487</td>\n",
+       "      <td>12311143</td>\n",
+       "      <td>469.709298</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "       country continent  year  lifeExp       pop   gdpPercap\n",
+       "1699  Zimbabwe    Africa  1987   62.351   9216418  706.157306\n",
+       "1700  Zimbabwe    Africa  1992   60.377  10704340  693.420786\n",
+       "1701  Zimbabwe    Africa  1997   46.809  11404948  792.449960\n",
+       "1702  Zimbabwe    Africa  2002   39.989  11926563  672.038623\n",
+       "1703  Zimbabwe    Africa  2007   43.487  12311143  469.709298"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.tail()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(1704, 6)"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.shape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Index(['country', 'continent', 'year', 'lifeExp', 'pop', 'gdpPercap'], dtype='object')"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.columns\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([['Afghanistan', 'Asia', 1952, 28.801, 8425333, 779.4453145],\n",
+       "       ['Afghanistan', 'Asia', 1957, 30.331999999999997, 9240934,\n",
+       "        820.8530296],\n",
+       "       ['Afghanistan', 'Asia', 1962, 31.997, 10267083, 853.1007099999999],\n",
+       "       ...,\n",
+       "       ['Zimbabwe', 'Africa', 1997, 46.809, 11404948, 792.4499602999999],\n",
+       "       ['Zimbabwe', 'Africa', 2002, 39.989000000000004, 11926563,\n",
+       "        672.0386227000001],\n",
+       "       ['Zimbabwe', 'Africa', 2007, 43.486999999999995, 12311143,\n",
+       "        469.70929810000007]], dtype=object)"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.values\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "country       object\n",
+       "continent     object\n",
+       "year           int64\n",
+       "lifeExp      float64\n",
+       "pop            int64\n",
+       "gdpPercap    float64\n",
+       "dtype: object"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.dtypes\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'pandas.core.frame.DataFrame'>\n",
+      "RangeIndex: 1704 entries, 0 to 1703\n",
+      "Data columns (total 6 columns):\n",
+      " #   Column     Non-Null Count  Dtype  \n",
+      "---  ------     --------------  -----  \n",
+      " 0   country    1704 non-null   object \n",
+      " 1   continent  1704 non-null   object \n",
+      " 2   year       1704 non-null   int64  \n",
+      " 3   lifeExp    1704 non-null   float64\n",
+      " 4   pop        1704 non-null   int64  \n",
+      " 5   gdpPercap  1704 non-null   float64\n",
+      "dtypes: float64(2), int64(2), object(2)\n",
+      "memory usage: 80.0+ KB\n"
+     ]
+    }
+   ],
+   "source": [
+    "df.info()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "grade": false,
+     "locked": true,
+     "solution": false
+    }
+   },
+   "source": [
+    "## Subset selection\n",
+    "\n",
+    "### 1) Selection with `[  ]` \n",
+    "\n",
+    "You can think of a DataFrame as a group of Series that share an index (in this case the column headers). This makes it easy to select specific columns.\n",
+    "\n",
+    "Selecting a single column from the DataFrame will return a Series object."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "grade": false,
+     "locked": true,
+     "solution": false
+    }
+   },
+   "source": [
+    "### 2) Selection wiht `.loc[   ]` : index name locator\n",
+    "\n",
+    "Note: `loc` is also working with index number, but `loc` is slower than `iloc` to subset the DataFrame since it is already sorted by index number. \n",
+    "\n",
+    "Note: **:** , colon means all!  \n",
+    "\n",
+    "\n",
+    "**`loc` gets rows (or columns) with particular labels from the index.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "grade": false,
+     "locked": true,
+     "solution": false
+    }
+   },
+   "source": [
+    "Selecting all of the rows and some columns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "nbgrader": {
+     "grade": false,
+     "locked": false,
+     "solution": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "###\n",
+    "### YOUR CODE HERE\n",
+    "###\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### <font color='red'> Question 1  </font>\n",
+    "\n",
+    "Step \n",
+    "- 1) read `nba.csv` as `nba` by using Pandas \n",
+    "- 2) show the type of `nba`\n",
+    "- 3) show the summary of `nba` DataFrame using `info`\n",
+    "- 4) how many observations (rows) and how many columns the data have? \n",
+    "- 5) show the first 5 rows\n",
+    "- 6) show the last  5 rows\n",
+    "- 7) show the list of columns\n",
+    "- 8) show the type (e.g., integer, float, string/object) of each column"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "url=r'https://raw.githubusercontent.com/fivethirtyeight/data/master/nba-elo/nbaallelo.csv'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "raw='/Users/palaniappansubramaniam/Downloads/nba.csv'\n",
+    "df=pd.read_csv(raw,sep='\\t')\n",
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "pandas.core.frame.DataFrame"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(df)\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>gameorder,game_id,lg_id,_iscopy,year_id,date_game,seasongame,is_playoffs,team_id,fran_id,pts,elo_i,elo_n,win_equiv,opp_id,opp_fran,opp_pts,opp_elo_i,opp_elo_n,game_location,game_result,forecast,notes</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1,194611010TRH,NBA,0,1947,11/1/1946,1,0,TRH,Hu...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1,194611010TRH,NBA,1,1947,11/1/1946,1,0,NYK,Kn...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>2,194611020CHS,NBA,0,1947,11/2/1946,1,0,CHS,St...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>2,194611020CHS,NBA,1,1947,11/2/1946,2,0,NYK,Kn...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>3,194611020DTF,NBA,0,1947,11/2/1946,1,0,DTF,Fa...</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "  gameorder,game_id,lg_id,_iscopy,year_id,date_game,seasongame,is_playoffs,team_id,fran_id,pts,elo_i,elo_n,win_equiv,opp_id,opp_fran,opp_pts,opp_elo_i,opp_elo_n,game_location,game_result,forecast,notes\n",
+       "0  1,194611010TRH,NBA,0,1947,11/1/1946,1,0,TRH,Hu...                                                                                                                                                     \n",
+       "1  1,194611010TRH,NBA,1,1947,11/1/1946,1,0,NYK,Kn...                                                                                                                                                     \n",
+       "2  2,194611020CHS,NBA,0,1947,11/2/1946,1,0,CHS,St...                                                                                                                                                     \n",
+       "3  2,194611020CHS,NBA,1,1947,11/2/1946,2,0,NYK,Kn...                                                                                                                                                     \n",
+       "4  3,194611020DTF,NBA,0,1947,11/2/1946,1,0,DTF,Fa...                                                                                                                                                     "
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.head()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>gameorder,game_id,lg_id,_iscopy,year_id,date_game,seasongame,is_playoffs,team_id,fran_id,pts,elo_i,elo_n,win_equiv,opp_id,opp_fran,opp_pts,opp_elo_i,opp_elo_n,game_location,game_result,forecast,notes</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>126309</th>\n",
+       "      <td>63155,201506110CLE,NBA,0,2015,6/11/2015,100,1,...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>126310</th>\n",
+       "      <td>63156,201506140GSW,NBA,0,2015,6/14/2015,102,1,...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>126311</th>\n",
+       "      <td>63156,201506140GSW,NBA,1,2015,6/14/2015,101,1,...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>126312</th>\n",
+       "      <td>63157,201506170CLE,NBA,0,2015,6/16/2015,102,1,...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>126313</th>\n",
+       "      <td>63157,201506170CLE,NBA,1,2015,6/16/2015,103,1,...</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "       gameorder,game_id,lg_id,_iscopy,year_id,date_game,seasongame,is_playoffs,team_id,fran_id,pts,elo_i,elo_n,win_equiv,opp_id,opp_fran,opp_pts,opp_elo_i,opp_elo_n,game_location,game_result,forecast,notes\n",
+       "126309  63155,201506110CLE,NBA,0,2015,6/11/2015,100,1,...                                                                                                                                                     \n",
+       "126310  63156,201506140GSW,NBA,0,2015,6/14/2015,102,1,...                                                                                                                                                     \n",
+       "126311  63156,201506140GSW,NBA,1,2015,6/14/2015,101,1,...                                                                                                                                                     \n",
+       "126312  63157,201506170CLE,NBA,0,2015,6/16/2015,102,1,...                                                                                                                                                     \n",
+       "126313  63157,201506170CLE,NBA,1,2015,6/16/2015,103,1,...                                                                                                                                                     "
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.tail()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(126314, 1)"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.shape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Index(['gameorder,game_id,lg_id,_iscopy,year_id,date_game,seasongame,is_playoffs,team_id,fran_id,pts,elo_i,elo_n,win_equiv,opp_id,opp_fran,opp_pts,opp_elo_i,opp_elo_n,game_location,game_result,forecast,notes'], dtype='object')"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.columns\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([['1,194611010TRH,NBA,0,1947,11/1/1946,1,0,TRH,Huskies,66,1300,1293.2767,40.29483,NYK,Knicks,68,1300,1306.7233,H,L,0.64006501,'],\n",
+       "       ['1,194611010TRH,NBA,1,1947,11/1/1946,1,0,NYK,Knicks,68,1300,1306.7233,41.70517,TRH,Huskies,66,1300,1293.2767,A,W,0.35993499,'],\n",
+       "       ['2,194611020CHS,NBA,0,1947,11/2/1946,1,0,CHS,Stags,63,1300,1309.6521,42.012257,NYK,Knicks,47,1306.7233,1297.0712,H,W,0.63110125,'],\n",
+       "       ...,\n",
+       "       ['63156,201506140GSW,NBA,1,2015,6/14/2015,101,1,CLE,Cavaliers,91,1704.3949,1700.7391,60.010067,GSW,Warriors,104,1809.9791,1813.6349,A,L,0.2344346,'],\n",
+       "       ['63157,201506170CLE,NBA,0,2015,6/16/2015,102,1,CLE,Cavaliers,97,1700.7391,1692.0859,59.290245,GSW,Warriors,105,1813.6349,1822.2881,H,L,0.48145005,'],\n",
+       "       ['63157,201506170CLE,NBA,1,2015,6/16/2015,103,1,GSW,Warriors,105,1813.6349,1822.2881,68.519516,CLE,Cavaliers,97,1700.7391,1692.0859,A,W,0.51854992,']],\n",
+       "      dtype=object)"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.values\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "gameorder,game_id,lg_id,_iscopy,year_id,date_game,seasongame,is_playoffs,team_id,fran_id,pts,elo_i,elo_n,win_equiv,opp_id,opp_fran,opp_pts,opp_elo_i,opp_elo_n,game_location,game_result,forecast,notes    object\n",
+       "dtype: object"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.dtypes\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'pandas.core.frame.DataFrame'>\n",
+      "RangeIndex: 126314 entries, 0 to 126313\n",
+      "Data columns (total 1 columns):\n",
+      " #   Column                                                                                                                                                                                                   Non-Null Count   Dtype \n",
+      "---  ------                                                                                                                                                                                                   --------------   ----- \n",
+      " 0   gameorder,game_id,lg_id,_iscopy,year_id,date_game,seasongame,is_playoffs,team_id,fran_id,pts,elo_i,elo_n,win_equiv,opp_id,opp_fran,opp_pts,opp_elo_i,opp_elo_n,game_location,game_result,forecast,notes  126314 non-null  object\n",
+      "dtypes: object(1)\n",
+      "memory usage: 987.0+ KB\n"
+     ]
+    }
+   ],
+   "source": [
+    "df.info()\n",
+    "\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

@@ -1,0 +1,370 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "1b2cc4b6",
+   "metadata": {},
+   "source": [
+    "# In-class exercise for week 6-2\n",
+    "\n",
+    "- Package, module, and functions\n",
+    "\n",
+    "- OOP (Object Oriented Programming)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2231fad1",
+   "metadata": {},
+   "source": [
+    "## 1. Packages, modules, and functions"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "3e6683c7",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d33aa634",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b2784812",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4f7f7c6e",
+   "metadata": {},
+   "source": [
+    "## 2. Object Oriented Programming"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c13ec8d6",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e2782756",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5f776c8e",
+   "metadata": {},
+   "source": [
+    "f1 is an \"instance\" of Friends OR an \"object\"."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b99c72b0",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5bf60f81",
+   "metadata": {},
+   "source": [
+    "Field: Data attached to an object \n",
+    "\n",
+    "In this example, `first_name` and `last_name` are fields. They store data specific to `f1`.\n",
+    "\n",
+    "**There is no limit to the number of objects you can make!**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d6d0b50c",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "98f7bec4",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "98ee2ba8",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "90252a73",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5d78bfc4",
+   "metadata": {},
+   "source": [
+    "Those are not attached to a `Friend` object."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ae25f58a",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7672ff39",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9f7c3acd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(first_name,last_name)\n",
+    "print(f1.first_name,f1.last_name)\n",
+    "print(f2.first_name,f2.last_name)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9e7c3bde",
+   "metadata": {},
+   "source": [
+    "Classes are used to make objects, and each object can have different values for the same variable names.\n",
+    "\n",
+    "We can also attach additional fields to the objects!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7a20c01f",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "72564813",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9f09a440",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c6d8526b",
+   "metadata": {},
+   "source": [
+    "- `self`: a reference to the new object that is being created."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bf915f9c",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7ce0b27f",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5502e2d7",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "98a946ad",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4764e04c",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "889aaa0d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "fff1=Friend3(\"Harry Potter\", '1980')\n",
+    "print(fff1.name)\n",
+    "print(fff1.first_name)\n",
+    "print(fff1.last_name)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5e65d6ad",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9d3f16b6",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a6d21153",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "846af584",
+   "metadata": {},
+   "source": [
+    "#### <font color='red'> Question 1  </font> \n",
+    "\n",
+    "1) create a class `Avengers`\n",
+    "\n",
+    "2) add 1) full_name and birthday (string and the format is'yyyymmdd')\n",
+    "\n",
+    "3) add TWO functions\n",
+    "\n",
+    "-  _init_ (self, hero_name, full_name, birthday): create fields of `first_name` and `last_name` from full name, and `hero_name`. \n",
+    "\n",
+    "- age: function to calculate age\n",
+    "\n",
+    "    -- extract \"year\" part of the birthday! \n",
+    "\n",
+    "    -- you need to slice `birthday` string and then to change `string` to `int`.\n",
+    "\n",
+    "4) Aadd two objects: Ironman (Tony Stark, b. date is May 29, 1970) and Captain America (Steven Rogers, b.date is July 4, 1918).\n",
+    "\n",
+    "\n",
+    "5) print all fields of two objects, `first_name`, `last_name`, `hero_name`, `age`\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b1bf0b7b",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e250446a",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "90fb8a34",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "39117188",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

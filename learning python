@@ -1,0 +1,962 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "4b5bdb9f",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "45459e37dc8882ff65eecccd434b80ab",
+     "grade": false,
+     "grade_id": "cell-aa33b2834e43c29f",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "# In-class exercise 7-2\n",
+    "\n",
+    "### 1. OOP (continue)\n",
+    "\n",
+    "1)  `__str__`: it represents the class objects as a string.\n",
+    "\n",
+    "2) `__bases__`:it can be used to obtain a list of classes the given class inherits. \n",
+    "\n",
+    "3)  `__name__`: a built-in variable which evaluates to the name of the current module\n",
+    "\n",
+    "4) `__module__`:This built-in class attribute when called prints the name of the module the function/object was defined in, or None if unavailable.\n",
+    "\n",
+    "4)  Exception as class\n",
+    "\n",
+    "### 2. Other \n",
+    "\n",
+    "1) more about list and the lambda function\n",
+    "\n",
+    "2) file\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "afe95be8",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "0a43f085135b9beb7e83727ca2d7ac5c",
+     "grade": false,
+     "grade_id": "1",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c6678895",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "ad3bbb229d5a66c4a14f44badfa77de7",
+     "grade": false,
+     "grade_id": "2",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "da037517",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "7f5383e784608845bcc8e93d46d123b3",
+     "grade": false,
+     "grade_id": "3",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e5a11867",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "91f10b9d9c67ce08226556903bd7383f",
+     "grade": false,
+     "grade_id": "cell-5222456d77fd1b9a",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "### Exceptions are classes!\n",
+    "The output is produced by the object's `__str__()` method and it contains a brief message describing the reason."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8dadd0e4",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "f28f0522202d3d4b57751584b02b0cd9",
+     "grade": false,
+     "grade_id": "4",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c51f9ca3",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "0311b7852ceec7fa124e7e5ad36c49dc",
+     "grade": false,
+     "grade_id": "5",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class MyError(ZeroDivisionError):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "def division_test(num):\n",
+    "    if num==1:\n",
+    "        raise MyError\n",
+    "    else:\n",
+    "        raise ZeroDivisionError\n",
+    "        \n",
+    "        \n",
+    "for mode in [1,0 ]:\n",
+    "    try:\n",
+    "        division_test(mode)\n",
+    "    except MyError:\n",
+    "        print(\"my error!\")\n",
+    "    except ZeroDivisionError:\n",
+    "        print('Division by zero')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4f8c6243",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "8fc33b43649f2775861878c8e9b9d61b",
+     "grade": false,
+     "grade_id": "cell-873ba0a4fc6471be",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "### lambdas \n",
+    "\n",
+    "Lambdas, also known as anonymous functions, are small, restricted functions which do not need a name (i.e., an identifier).\n",
+    "\n",
+    "1) lambdas in filter()\n",
+    "\n",
+    "2) lambdas in map(): the map function is used to apply a particular operation to every element in a sequence. Like filter(), it also takes 2 parameters:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9fe740b8",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "cc55cdc86753ea0c3f080ff87f499cf1",
+     "grade": false,
+     "grade_id": "6",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2f385278",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "5b38fb4165e166b5ed6d1520836b2c7a",
+     "grade": false,
+     "grade_id": "7",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "33996ca7",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "efe13650c314093d5ad0ccf5e705e786",
+     "grade": false,
+     "grade_id": "8",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "3bb9b1f1",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "862bf0e4bdfc642841f9d2c02cd739a7",
+     "grade": false,
+     "grade_id": "9",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "caf135a8",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "f3d19412fdcb8f907eecac1036b0711a",
+     "grade": false,
+     "grade_id": "10",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "27312402",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "7e0da8ca9548d67ce040dd3e66645624",
+     "grade": false,
+     "grade_id": "11",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1f92d971",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "2fb35cbaebf87b7d8a49cf398c299fd6",
+     "grade": false,
+     "grade_id": "12",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fc682e6a",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "b38ce7aa892310c840ea359e6c2ed1a0",
+     "grade": false,
+     "grade_id": "cell-1d02cdcae4f6552f",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "### What is the difference between the lambda and the function?\n",
+    "\n",
+    "\n",
+    "The primary difference between a lambda and a regular function is that the lambda function evaluates only a single expression and yields a function object.\n",
+    "\n",
+    "Do not write complicated lambda functions in a production environment because it will be difficult for code-maintainers."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "407a01ae",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "e9ad8773413cfbf7b8507cc3ef89cad4",
+     "grade": false,
+     "grade_id": "cell-e1cbefae0e4c6c56",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "### 3. 1 File open \n",
+    "\n",
+    "There are two ways to read a file in Python, one line at a time and the whole file at once. Try this, run the cell below to open the file `example.txt`: \n",
+    "\n",
+    "The `open()` function takes at least one argument, the name of the file to open. The file handle is returned so you have to assign it to a variable. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ebd0b182",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "42c8d34595e5a5ec9065ad4b174f26b0",
+     "grade": true,
+     "grade_id": "13",
+     "locked": false,
+     "points": 0,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2c1887c3",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "d9a01b929c5be18c33d91bc8628312e5",
+     "grade": false,
+     "grade_id": "14",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fd20c7b9",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "a5b6f4b6250a4a4ff7473b21a4961ba7",
+     "grade": false,
+     "grade_id": "cell-f7fbc538ca2d9c45",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "Now execute the code in this cell over and over: "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "674ca333",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "0fc992571bf238572ae47a48f392542f",
+     "grade": false,
+     "grade_id": "15",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f89e2940",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "6c53a742fcb28e7f919682fdfc3c8e77",
+     "grade": false,
+     "grade_id": "cell-cfa1418581dc66c0",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "What do you notice? The file is read one line at a time, each time you execute `readline()` the next line is returned. When the file reaches the end empty lines are returned. Try doing it again but re-running the `open()` function. Now see what happens when you use the `read()` function: "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8517c9c5",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "210440a78b5b30897a46788415e02dcf",
+     "grade": false,
+     "grade_id": "16",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "427a86fa",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "bd02c77a07479f096c0bfb3ee24923c1",
+     "grade": false,
+     "grade_id": "17",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "796da9c8",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "e07828924d807cbd67fe5a44a40c0feb",
+     "grade": false,
+     "grade_id": "cell-ea8db6c501e07e15",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "**Do you understand how calling `readline` changes the place in the file?** \n",
+    "\n",
+    "In a practical program you want to *do something* with the data you get in the file. The exmple below opens the file and reads the first four lines into four different variables. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "15791411",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "b2ec37f36dd596354ae333a72f098641",
+     "grade": false,
+     "grade_id": "18",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "21c59765",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "60467f645707f8566ac87015b17f3644",
+     "grade": false,
+     "grade_id": "cell-fc739257f22703c7",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "### 3.2  Writing Files \n",
+    "\n",
+    "When you open a file you have to decide whether to read or write the file (you *can* do both, more on that later). If you only give one argument to `open()` the file is opened for reading. If you want to *write* to a file here's how you start: \n",
+    "\n",
+    "```python\n",
+    "file_handle = open('output.txt', 'w')\n",
+    "```\n",
+    "\n",
+    "<div class=\"alert alert-danger\">\n",
+    "    <strong>Watch Out!</strong>\n",
+    "    Opening a file for writing <b>erases the contents of the file</b>.\n",
+    "</div>\n",
+    "\n",
+    "Type the open command into the next cell:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1388b9ee",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "7d627889b3fcf07acd09fc0587bfb45b",
+     "grade": false,
+     "grade_id": "19",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "353df6cd",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "e9c13c694a0f71e6e70512773c6f7d8a",
+     "grade": false,
+     "grade_id": "cell-21ad496ffffd8062",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "When the second argument to `open()` is `'w'` the file is open for writing. To write a file use the `write` function. Execute the code to write to the file. Once the file is open you can write to it using the `write` function. For example: "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "beca88f6",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "bd8fff79d77cf7cf664a1fb62db571bd",
+     "grade": false,
+     "grade_id": "20",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ea430364",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "6a5cff3d6f83cddc1d6a21b88965d469",
+     "grade": false,
+     "grade_id": "cell-1c05e5ceb80acf00",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "**Run the program and look inside of the textfile** "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5e5ff687",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "0b3c67c2ae526e454046e9db1dc71bcf",
+     "grade": false,
+     "grade_id": "cell-2b37e7013fe937ac",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "### 3.3  Closing the File\n",
+    "\n",
+    "If you open the file that we've just written you will notice the contents aren't there yet. When you write to a file the information you write is temporary held in memory to improve the performance of your program. When your program is done reading or writing a file you have to close the file handle using the close function.\n",
+    "\n",
+    "It's essential that you always remember to close the files you've opened. A program can only hold a fixed number of files open, if your code \"leaks\" file handles by forgetting about them it's possible that you will exhaust that number and the `open()` function will fail. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0c7ec750",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "eead2c28105bd851bacefa8b1e9442b6",
+     "grade": false,
+     "grade_id": "21",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "testfile2.read()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9e55f140",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "b38c9b0eea26e81f23a8a3b0e141c0ae",
+     "grade": true,
+     "grade_id": "22",
+     "locked": true,
+     "points": 0,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "testfile2.close()\n",
+    "\n",
+    "raw2= r'C:\\Users\\yoon-desk\\OneDrive - Clark University\\Teaching\\BAN4550\\Shared\\example10.txt'\n",
+    "testfile2=open(raw2)\n",
+    "testfile2.read()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a3274104",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "43c65f358ca718d104afb5f3ec29a2fb",
+     "grade": false,
+     "grade_id": "23",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "#### <font color='red'> Question 1 </font>\n",
+    "\n",
+    "*Create a file called `test.txt` with a few lines in it.* Read and print the first line of the file. **Don't forget to close the file**."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "16e58ae4",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "9f1fb0b07c23e5cf97579973fa430063",
+     "grade": true,
+     "grade_id": "24",
+     "locked": false,
+     "points": 0,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9230bb14",
+   "metadata": {
+    "deletable": false,
+    "editable": false,
+    "nbgrader": {
+     "cell_type": "markdown",
+     "checksum": "972cc8411625c05ab79ea0384ffd5f30",
+     "grade": false,
+     "grade_id": "cell-94cdd347bf603ed7",
+     "locked": true,
+     "schema_version": 3,
+     "solution": false,
+     "task": false
+    }
+   },
+   "source": [
+    "#### <font color='red'> Question 2 </font>\n",
+    "\n",
+    "step1) run the following code:\n",
+    "\n",
+    "```python\n",
+    "num = [i for i in range(30) if i>=2 if i<=25]\n",
+    "print(num)\n",
+    "```\n",
+    "\n",
+    "step2) generate a new list `num_even` having only even numbers from `num` (hint: consider `%`)\n",
+    "\n",
+    "step3) print  `num_even`\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4e1130c0",
+   "metadata": {
+    "deletable": false,
+    "nbgrader": {
+     "cell_type": "code",
+     "checksum": "dc9b0c662fadfe42da9e265469a52169",
+     "grade": false,
+     "grade_id": "25",
+     "locked": false,
+     "schema_version": 3,
+     "solution": true,
+     "task": false
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# YOUR CODE HERE\n",
+    "raise NotImplementedError()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
